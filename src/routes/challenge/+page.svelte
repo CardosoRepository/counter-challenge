@@ -1,5 +1,19 @@
 <script lang="ts">
     import TimerDisplay from "./../../lib/components/TimerDisplay.svelte";
+    import { countdown, pauseCountdown } from "../../store";
+
+    let modal: boolean = false;
+
+    countdown.subscribe(value => {
+        if (value === 0) {
+            show();
+        }
+    })
+    
+    function show() {
+        const modal2 = document.getElementById('my_modal_3') as HTMLDialogElement;
+        modal2 && modal2.showModal();
+    }
 </script>
 
 <div class="flex justify-end">
@@ -22,6 +36,24 @@
             <input type="text" name="email" id="email" />
         </div>
         <TimerDisplay />
-        <button class="btn btn-primary" type="submit">Adicionar</button>
+        <button class="btn btn-primary" type="submit">Enviar</button>
     </form>
 </div>
+
+<button on:click={show}>Modal: {modal}</button>
+
+<dialog id="my_modal_3" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+            <button
+                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                >✕</button
+            >
+        </form>
+        <h3 class="font-bold text-lg">Hello!</h3>
+        <p class="py-4">Press ESC key or click on ✕ button to close</p>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
