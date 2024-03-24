@@ -1,4 +1,8 @@
 <script lang="ts">
 </script>
 
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+<div class="flex justify-center items-center h-screen w-screen">
+    <a href="/challenge">
+        <button class="btn btn-primary">Iniciar Desafio</button>
+    </a>
+</div>
