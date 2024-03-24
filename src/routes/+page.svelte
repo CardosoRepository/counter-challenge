@@ -1,24 +1,30 @@
 <script lang="ts">
+	import Modal from './../lib/components/Modal.svelte';
     import TimerDisplay from "../lib/components/TimerDisplay.svelte";
-    import { countdown, startCountdown, challengeStarted, resetCountdown } from "../store";
+    import {
+        countdown,
+        startCountdown,
+        challengeStarted,
+        resetCountdown,
+        pauseCountdown,
+    } from "../store";
 
+    let type: "fail" | "success" = "fail";
     countdown.subscribe((value) => {
         if (value === 0) {
-            // show();
+            type = "fail";
+            show(type);
         }
     });
 
-    function show(): void {
-        const modal2 = document.getElementById(
-            "my_modal_3"
-        ) as HTMLDialogElement;
+    function show(type: "fail" | "success"): void {
+        const modal2 = document.getElementById(type) as HTMLDialogElement;
         modal2 && modal2.showModal();
     }
 
     function startChallengeCountdown() {
         if (!$challengeStarted) {
             startCountdown();
-            challengeStarted.set(true);
         }
     }
 
@@ -31,7 +37,9 @@
             formObject[key] = value;
         });
 
-        console.log("Handle Submit");
+        pauseCountdown();
+        type = "success";
+        show(type);
     }
 
     function resetTimer() {
@@ -40,7 +48,9 @@
 </script>
 
 <div class="flex justify-end">
-    <button class="btn btn-secondary m-4" on:click={resetTimer}>Reset Timer</button>
+    <button class="btn btn-secondary m-4" on:click={resetTimer}
+        >Reset Timer</button
+    >
     <a href="/candidate">
         <button class="btn btn-secondary m-4">Candidato</button>
     </a>
@@ -52,15 +62,15 @@
     >
         <div class="form-control">
             <label for="name" class="font-semibold">Nome</label>
-            <input type="text" name="name" id="name" />
+            <input type="text" name="name" id="name" required />
         </div>
         <div class="form-control">
             <label for="phone" class="font-semibold">Telefone</label>
-            <input type="text" name="phone" id="phone" />
+            <input type="text" name="phone" id="phone" required />
         </div>
         <div class="form-control">
             <label for="email" class="font-semibold">Email</label>
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email" id="email" required />
         </div>
         <TimerDisplay />
 
@@ -76,21 +86,8 @@
     </form>
 </div>
 
-<dialog id="my_modal_3" class="modal">
-    <div class="modal-box">
-        <form method="dialog">
-            <button
-                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                >✕</button
-            >
-        </form>
-        <h3 class="font-bold text-lg">Hello!</h3>
-        <p class="py-4">Press ESC key or click on ✕ button to close</p>
-    </div>
-    <form method="dialog" class="modal-backdrop">
-        <button>close</button>
-    </form>
-</dialog>
+<Modal type="fail" />
+<Modal type="success" />
 
 <style>
     .form-control > input {

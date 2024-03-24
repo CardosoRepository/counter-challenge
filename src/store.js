@@ -20,6 +20,7 @@ export function formatTime(time) {
 // Initializes countdown
 let interval;
 export function startCountdown() {
+    challengeStarted.set(true);
     interval = setInterval(() => {
         countdown.update((value) => {
             if (value === 0) {
