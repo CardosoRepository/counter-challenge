@@ -6,12 +6,21 @@
         pauseCountdown,
         formatTime,
     } from "./../../store.js";
+    import { derived } from "svelte/store";
+    
+    let timeRemaining = countdown;
+    
+    const formattedTime = derived(
+        countdown,
+        $countdown => formatTime($countdown)
+    );
 
-    startCountdown();
 
-    onDestroy(() => {
-        pauseCountdown();
-    });
+    // startCountdown();
+
+    // onDestroy(() => {
+    //     pauseCountdown();
+    // });
 </script>
 
 <h1>Contador: {formatTime($countdown)}</h1>

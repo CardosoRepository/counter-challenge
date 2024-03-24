@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex justify-end">
-    <a href="/challenge">
+    <a href="/">
         <button class="btn btn-secondary m-4">Voltar</button>
     </a>
 </div>
