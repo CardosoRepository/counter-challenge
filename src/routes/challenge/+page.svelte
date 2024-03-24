@@ -1,6 +1,7 @@
 <script lang="ts">
-    export let count: number = 0;
+    import TimerDisplay from "./../../lib/components/TimerDisplay.svelte";
 </script>
+
 <div class="flex justify-end">
     <a href="/candidate">
         <button class="btn btn-secondary m-4">Candidato</button>
@@ -20,7 +21,7 @@
             <label for="email" class="font-semibold">Email</label>
             <input type="text" name="email" id="email" />
         </div>
-        <p>Contador: {count}</p>
+        <TimerDisplay />
         <button class="btn btn-primary" type="submit">Adicionar</button>
     </form>
 </div>
