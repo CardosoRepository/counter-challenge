@@ -132,9 +132,18 @@ test("Check if counter doesn't stops", async ({ page }) => {
 
     await page.click('button:has-text("Iniciar Desafio")');
 
+    const pastCounterValue = await page.textContent('span#counter');
+
+    await page.waitForTimeout(2000);
+
     await page.waitForSelector("button#candidate");
 
     await page.click('button#candidate');
+    await page.waitForTimeout(2000);
 
-    expect(page.isVisible('button:has-text("Voltar")'));
+    await page.click('button:has-text("Voltar")');
+
+    const actualCounterValue = await page.textContent('span#counter');
+
+    expect(pastCounterValue > actualCounterValue);
 });
