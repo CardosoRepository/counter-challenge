@@ -18,7 +18,7 @@
 
 <div class="flex justify-end">
     <a href="/">
-        <button class="btn btn-secondary m-4">Voltar</button>
+        <button class="btn btn-primary m-4">Voltar</button>
     </a>
 </div>
 <div class="flex flex-col bg-slate-700 rounded-xl justify-center p-4 m-4">

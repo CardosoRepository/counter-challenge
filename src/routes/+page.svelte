@@ -11,7 +11,7 @@
 
     export let data;
 
-    let type: "fail" | "success";
+    let type: "fail" | "success" = null;
 
     countdown.subscribe((value) => {
         if (value === 0) {
@@ -46,17 +46,20 @@
     }
 
     function resetTimer() {
+        type = null;
         resetCountdown();
     }
 </script>
 
 <div class="flex justify-end">
-    <button class="btn btn-secondary m-4" on:click={resetTimer}
+    <button class="btn btn-neutral m-4" on:click={resetTimer}
         >Reset Timer</button
     >
-    <a href="/candidate">
-        <button class="btn btn-secondary m-4">Candidato</button>
-    </a>
+    {#if $challengeStarted}
+        <a href="/candidate">
+            <button class="btn btn-primary m-4">Candidato</button>
+        </a>
+    {/if}
 </div>
 <div class="flex bg-slate-700 rounded-xl justify-center p-4 m-4">
     <form
@@ -85,16 +88,18 @@
                 bind:value={data.email}
             />
         </div>
-        <TimerDisplay />
+        {#if $challengeStarted}
+            <TimerDisplay />
+        {/if}
 
         {#if !$challengeStarted}
             <button
-                class="btn btn-primary"
+                class="btn btn-info"
                 type="button"
                 on:click={startChallengeCountdown}>Iniciar Desafio</button
             >
         {:else}
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-info" type="submit">Enviar</button>
         {/if}
     </form>
 </div>
