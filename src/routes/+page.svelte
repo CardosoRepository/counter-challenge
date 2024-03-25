@@ -33,7 +33,7 @@
 
     function handleSubmit(event) {
         event.preventDefault();
-        
+
         if ($countdown === 0) {
             return;
         }
@@ -134,12 +134,6 @@
 <Modal {type} />
 
 <style>
-    .form-control > input {
-        padding: 0.5rem;
-        margin: 0.25rem 0 0.25rem 0;
-        border-radius: 0.7rem;
-    }
-
     :global(body) {
         @apply bg-zinc-900;
     }
