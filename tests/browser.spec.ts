@@ -96,3 +96,45 @@ test("Check if the fail modal closes when clicking outside the modal", async ({ 
 
     expect(await page.isVisible("dialog#fail modal-open")).toBe(false);
 });
+
+test("Check navigation and content of candidate page", async ({ page }) => {
+    await page.goto("https://lesser-test.vercel.app");
+
+    await page.click('button:has-text("Iniciar Desafio")');
+
+    await page.waitForSelector("button#candidate");
+
+    await page.click('button#candidate');
+
+    await page.waitForSelector('div.flex.flex-col h1');
+
+    const h1Texts = await page.$$eval('div.flex.flex-col h1', elements => elements.map(element => element.textContent.trim()));
+
+    expect(h1Texts[0]).toContain('Nome');
+    expect(h1Texts[1]).toContain('Telefone');
+    expect(h1Texts[2]).toContain('Email');
+});
+
+test("Check if 'back' button exists in candidate page", async ({ page }) => {
+    await page.goto("https://lesser-test.vercel.app");
+
+    await page.click('button:has-text("Iniciar Desafio")');
+
+    await page.waitForSelector("button#candidate");
+
+    await page.click('button#candidate');
+
+    expect(page.isVisible('button:has-text("Voltar")'));
+});
+
+test("Check if counter doesn't stops", async ({ page }) => {
+    await page.goto("https://lesser-test.vercel.app");
+
+    await page.click('button:has-text("Iniciar Desafio")');
+
+    await page.waitForSelector("button#candidate");
+
+    await page.click('button#candidate');
+
+    expect(page.isVisible('button:has-text("Voltar")'));
+});

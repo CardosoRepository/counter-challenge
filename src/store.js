@@ -1,5 +1,5 @@
 // timerStore.js
-import { writable, derived } from "svelte/store";
+import { writable } from "svelte/store";
 
 // Initial time for the countdown
 const initialTime = 15;
@@ -11,10 +11,7 @@ export const challengeStarted = writable(false);
 export function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
-        2,
-        "0"
-    )}`;
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
 // Initializes countdown
