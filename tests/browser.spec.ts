@@ -35,3 +35,26 @@ test("Verificar o clique do botão para iniciar o desafio", async ({ page }) => 
     // Verificar se o modal está visível após 15 segundos
     expect(modalVisible).toBe(true);
 });
+
+test("Verificar se o modal de sucesso aparece após enviar o formulário", async ({ page }) => {
+    // Navegar até a página que contém o formulário
+    await page.goto("https://lesser-test.vercel.app");
+
+    // Clique no botão "Iniciar Desafio"
+    await page.click('button[id="startChallenge"]');
+
+    // Aguarde um pequeno atraso para permitir que a página reaja
+    await page.waitForTimeout(1000);
+
+    // Clique no botão "Enviar"
+    await page.click('button[type="submit"]');
+
+    // Aguarde até que o modal apareça
+    await page.waitForSelector("dialog#success");
+
+    // Obtenha o texto do modal
+    const modalText = await page.textContent("dialog#success p");
+
+    // Verifique se o texto do modal contém "Desafio finalizado com sucesso!"
+    expect(modalText).toContain("Desafio finalizado com sucesso!");
+});
