@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Modal from './../../lib/components/Modal.svelte';
     import { countdown } from '../../store.js';
+    import { goto } from '$app/navigation';
 
     export let data;
 
@@ -17,9 +18,7 @@
 </script>
 
 <div class="flex justify-end">
-    <a href="/">
-        <button class="btn btn-primary m-4">Voltar</button>
-    </a>
+    <button class="btn btn-primary m-4" on:click={() => {goto('/')}}>Voltar</button>
 </div>
 <div class="flex flex-col bg-slate-700 rounded-xl justify-center p-4 m-4">
     <h1>Nome: {data?.name || "-"}</h1>

@@ -8,6 +8,7 @@
         resetCountdown,
         pauseCountdown,
     } from "../store";
+    import { goto } from '$app/navigation';
 
     export let data;
 
@@ -21,8 +22,8 @@
     });
 
     function show(type: "fail" | "success"): void {
-        const modal2 = document.getElementById(type) as HTMLDialogElement;
-        modal2 && modal2.showModal();
+        const modal = document.getElementById(type) as HTMLDialogElement;
+        modal && modal.showModal();
     }
 
     function startChallengeCountdown() {
@@ -56,9 +57,7 @@
         >Reset Timer</button
     >
     {#if $challengeStarted}
-        <a href="/candidate">
-            <button class="btn btn-primary m-4">Candidato</button>
-        </a>
+        <button class="btn btn-primary m-4" on:click={() => {goto('/candidate')}}>Candidato</button>
     {/if}
 </div>
 <div class="flex bg-slate-700 rounded-xl justify-center p-4 m-4">
