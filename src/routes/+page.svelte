@@ -57,7 +57,7 @@
         >Reset Timer</button
     >
     {#if $challengeStarted}
-        <button class="btn btn-primary m-4" on:click={() => {goto('/candidate')}}>Candidato</button>
+        <button class="btn btn-primary m-4" id="candidate" on:click={() => {goto('/candidate')}}>Candidato</button>
     {/if}
 </div>
 <div class="flex bg-slate-700 rounded-xl justify-center p-4 m-4">
