@@ -108,7 +108,7 @@ test("Check navigation and content of candidate page", async ({ page }) => {
 
     await page.waitForSelector('div.flex.flex-col h1');
 
-    const h1Texts = await page.$$eval('div.flex.flex-col h1', elements => elements.map(element => element.textContent.trim()));
+    const h1Texts = await page.$$eval('div.flex.flex-col h1', elements => elements.map(element => element.textContent?.trim()));
 
     expect(h1Texts[0]).toContain('Nome');
     expect(h1Texts[1]).toContain('Telefone');
@@ -132,7 +132,7 @@ test("Check if counter doesn't stops", async ({ page }) => {
 
     await page.click('button:has-text("Iniciar Desafio")');
 
-    const pastCounterValue = await page.textContent('span#counter');
+    const pastCounterValue = await page.textContent('span#counter') || "0";
 
     await page.waitForTimeout(2000);
 
@@ -143,7 +143,7 @@ test("Check if counter doesn't stops", async ({ page }) => {
 
     await page.click('button:has-text("Voltar")');
 
-    const actualCounterValue = await page.textContent('span#counter');
+    const actualCounterValue = await page.textContent('span#counter') || "0";
 
     expect(pastCounterValue > actualCounterValue);
 });
