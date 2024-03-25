@@ -15,7 +15,7 @@
                 on:click={() => closeModal()}>&#10005;</button
             >
         </form>
-        <p class="py-4">
+        <p class="text-lg py-4">
             Desafio finalizado com falha!
         </p>
     </div>
@@ -32,7 +32,7 @@
                 on:click={() => closeModal()}>&#10005;</button
             >
         </form>
-        <p class="py-4">
+        <p class="text-lg py-4">
             Desafio finalizado com sucesso!
         </p>
     </div>

@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-control > label, #formData {
+    color: #E5E4E2;
+}
+
+#formData > h1 {
+    font-weight: 700;
+}

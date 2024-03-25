@@ -18,9 +18,9 @@
 </script>
 
 <div class="flex justify-end">
-    <button class="btn btn-primary m-4" on:click={() => {goto('/')}}>Voltar</button>
+    <button class="btn btn-neutral text-base m-4" on:click={() => {goto('/')}}>Voltar</button>
 </div>
-<div class="flex flex-col bg-slate-700 rounded-xl justify-center p-4 m-4">
+<div class="flex flex-col bg-slate-700 rounded-xl justify-center p-4 m-4 mt-0" id="formData">
     <h1>Nome: {data?.name || "-"}</h1>
     <h1>Telefone: {data?.phone || "-"}</h1>
     <h1>Email: {data?.email || "-"}</h1>
