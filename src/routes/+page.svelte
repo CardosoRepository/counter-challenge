@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Modal from './../lib/components/Modal.svelte';
+    import Modal from "./../lib/components/Modal.svelte";
     import TimerDisplay from "../lib/components/TimerDisplay.svelte";
     import {
         countdown,
@@ -9,7 +9,10 @@
         pauseCountdown,
     } from "../store";
 
-    let type: "fail" | "success" = "fail";
+    export let data;
+
+    let type: "fail" | "success";
+
     countdown.subscribe((value) => {
         if (value === 0) {
             type = "fail";
@@ -32,11 +35,11 @@
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
 
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+        
         pauseCountdown();
         type = "success";
         show(type);
@@ -62,15 +65,15 @@
     >
         <div class="form-control">
             <label for="name" class="font-semibold">Nome</label>
-            <input type="text" name="name" id="name" required />
+            <input type="text" name="name" id="name" bind:value={data.name} />
         </div>
         <div class="form-control">
             <label for="phone" class="font-semibold">Telefone</label>
-            <input type="text" name="phone" id="phone" required />
+            <input type="text" name="phone" id="phone" bind:value={data.phone} />
         </div>
         <div class="form-control">
             <label for="email" class="font-semibold">Email</label>
-            <input type="text" name="email" id="email" required />
+            <input type="text" name="email" id="email" bind:value={data.email} />
         </div>
         <TimerDisplay />
 

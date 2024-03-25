@@ -1,8 +1,8 @@
-<script>
-    export let type; // Propriedade para definir o tipo de mensagem (fail | success)
+<script lang="ts">
+    export let type: "fail" | "success";
 
     function closeModal() {
-        const modal = document.getElementById(type);
+        const modal = document.getElementById(type) as HTMLDialogElement;
         modal && modal.close();
     }
 </script>
@@ -12,7 +12,7 @@
         <form method="dialog">
             <button
                 class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onclick={() => closeModal()}>&#10005;</button
+                on:click={() => closeModal()}>&#10005;</button
             >
         </form>
         <p class="py-4">
@@ -22,6 +22,6 @@
         </p>
     </div>
     <form method="dialog" class="modal-backdrop">
-        <button onclick={() => closeModal()}>close</button>
+        <button on:click={() => closeModal()}>close</button>
     </form>
 </dialog>
