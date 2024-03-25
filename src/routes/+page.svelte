@@ -61,32 +61,58 @@
         >
     {/if}
 </div>
-<div class="flex bg-slate-700 rounded-xl justify-center p-4 m-4" class:mt-0={$challengeStarted}>
+<div
+    class="flex bg-slate-700 rounded-xl justify-center p-4 m-4"
+    class:mt-0={$challengeStarted}
+>
     <form
         class="flex flex-col form-create space-y-4 w-2/3 py-4"
         on:submit={handleSubmit}
     >
         <div class="form-control">
-            <label for="name" class="font-semibold">Nome</label>
-            <input type="text" name="name" id="name" bind:value={data.name} />
+            <label
+                for="name"
+                class="input input-bordered flex items-center gap-2"
+            >
+                <input
+                    type="text"
+                    class="grow"
+                    placeholder="Nome"
+                    name="name"
+                    id="name"
+                    bind:value={data.name}
+                />
+            </label>
         </div>
         <div class="form-control">
-            <label for="phone" class="font-semibold">Telefone</label>
-            <input
-                type="text"
-                name="phone"
-                id="phone"
-                bind:value={data.phone}
-            />
+            <label
+                for="phone"
+                class="input input-bordered flex items-center gap-2"
+            >
+                <input
+                    type="text"
+                    class="grow"
+                    placeholder="Telefone"
+                    name="phone"
+                    id="phone"
+                    bind:value={data.phone}
+                />
+            </label>
         </div>
         <div class="form-control">
-            <label for="email" class="font-semibold">Email</label>
-            <input
-                type="text"
-                name="email"
-                id="email"
-                bind:value={data.email}
-            />
+            <label
+                for="email"
+                class="input input-bordered flex items-center gap-2"
+            >
+                <input
+                    type="text"
+                    class="grow"
+                    placeholder="Email"
+                    name="email"
+                    id="email"
+                    bind:value={data.email}
+                />
+            </label>
         </div>
         {#if $challengeStarted}
             <TimerDisplay />
