@@ -1,5 +1,19 @@
 <script lang="ts">
+	import Modal from './../../lib/components/Modal.svelte';
+    import { countdown } from '../../store.js';
+
     export let data;
+
+    countdown.subscribe((value) => {
+        if (value === 0) {
+            show();
+        }
+    });
+
+    function show(): void {
+        const modal2 = document.getElementById("fail") as HTMLDialogElement;
+        modal2 && modal2.showModal();
+    }
 </script>
 
 <div class="flex justify-end">
@@ -12,3 +26,5 @@
     <h1>Telefone: {data?.phone || "-"}</h1>
     <h1>email: {data?.email || "-"}</h1>
 </div>
+
+<Modal type="fail" />
