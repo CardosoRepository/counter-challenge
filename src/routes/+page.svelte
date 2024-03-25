@@ -39,7 +39,7 @@
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        
+
         pauseCountdown();
         type = "success";
         show(type);
@@ -69,11 +69,21 @@
         </div>
         <div class="form-control">
             <label for="phone" class="font-semibold">Telefone</label>
-            <input type="text" name="phone" id="phone" bind:value={data.phone} />
+            <input
+                type="text"
+                name="phone"
+                id="phone"
+                bind:value={data.phone}
+            />
         </div>
         <div class="form-control">
             <label for="email" class="font-semibold">Email</label>
-            <input type="text" name="email" id="email" bind:value={data.email} />
+            <input
+                type="text"
+                name="email"
+                id="email"
+                bind:value={data.email}
+            />
         </div>
         <TimerDisplay />
 
@@ -89,8 +99,7 @@
     </form>
 </div>
 
-<Modal type="fail" />
-<Modal type="success" />
+<Modal type={type} />
 
 <style>
     .form-control > input {
