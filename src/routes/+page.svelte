@@ -95,6 +95,7 @@
         {#if !$challengeStarted}
             <button
                 class="btn btn-info"
+                id="startChallenge"
                 type="button"
                 on:click={startChallengeCountdown}>Iniciar Desafio</button
             >
