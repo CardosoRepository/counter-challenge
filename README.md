@@ -1,38 +1,34 @@
-# create-svelte
+<h1 align="center">
+  Counter Challenge
+</h1>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+<p align="center">
+  <img alt="about" src="src/about.png" width="90%">
+</p>
 
-## Creating a project
+## ✨ Tecnologias
 
-If you're seeing this, you've probably already done this step. Congrats!
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- [Svelte Kit](https://kit.svelte.dev/)
+- [TailwindCSS](https://tailwindcss.com)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Vite](https://vitejs.dev)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## 💻 Projeto
 
-## Developing
+O Counter Challenge é um app de formulário que possui um desafio por tempo. O intuito dele é poder preencher um formulário, permitir a passagem dos dados dele entre componentes e implementar um modal.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🔖 Acesso
 
-```bash
-npm run dev
+[Counter Challenge](https://counter-challenge-a1.vercel.app)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## 🚀 Como executar
 
-## Building
+- Clone o repositório
+- Instale as dependências com `npm install`
+- Inicie o servidor com `npm run dev`
 
-To create a production version of your app:
+Agora você pode acessar [`localhost:5173`](http://localhost:5173) do seu navegador.
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+---
