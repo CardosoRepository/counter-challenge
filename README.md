@@ -13,6 +13,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Svelte Kit](https://kit.svelte.dev/)
 - [TailwindCSS](https://tailwindcss.com)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [DaisyUI](https://daisyui.com)
 - [Vite](https://vitejs.dev)
 
 ## 💻 Projeto
